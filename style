@@ -1,20 +1,11 @@
 #!/bin/bash
 if [[ $1 == "--background" ]]; then
 	image_source=$2
-	background_cache=.background.png
-	background_dir=/usr/share/backgrounds
-	background=/usr/share/backgrounds/background.png
+	background=$HOME/.background.png
 
-	if command -v magick >/dev/null 2>&1 ; then
+	magick $image_source $background
+	feh --bg-scale $background
 
-		mkdir -p $background_dir
-		magick $image_source $background_cache
-		sudo mv $background_cache $background
-		feh --bg-scale $backgound
-
-	else
-		echo "ERROR: Imagemagick not found"
-	fi
 elif [[ $1 == "--face" ]]; then
 	image_source=$2
 	image_cache=.cache_$image_source.png

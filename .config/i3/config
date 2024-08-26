@@ -1,10 +1,10 @@
 set $mod Mod4
 
-set $background /usr/share/backgrounds/background.png
+set $background ~/.background.png
 set $browser librewolf
 set $terminal kitty
 set $launcher rofi -show drun
-set $lock i3lock -i /usr/share/backgrounds/background.png
+set $lock i3lock -i ~/.background.png
 set $filemanager kitty -e "ranger"
 set $screenshot scrot ~/Pictures/screenshots/%Y_%H_%M_%S.png -e 'mkdir -p ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i $f'
 set $screenshot_area scrot -s ~/Pictures/screenshots/%Y_%H_%M_%S.png -e 'mkdir -p ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i $f'
@@ -17,6 +17,7 @@ font pango:monospace 8
 default_border pixel 2
 default_floating_border pixel 0
 
+exec feh --bg-scale $background
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id feh --bg-scale $backgound
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
