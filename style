@@ -4,7 +4,7 @@ if [[ $1 == "--background" ]]; then
 	background=$HOME/.background.png
 
 	magick $image_source $background
-	feh --bg-scale $background
+	feh --bg-fill $background
 
 elif [[ $1 == "--face" ]]; then
 	image_source=$2
