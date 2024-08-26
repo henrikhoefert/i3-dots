@@ -27,5 +27,6 @@ elif [[ $1 == "--face" ]]; then
 	magick $image_cache -gravity Center -crop "$side\x$side+0+0" +repage $image_cache
 
 	mv $image_cache ~/.face
+	sudo cp ~/.face /usr/share/sddm/faces/$USER.face.icon
 	ln ~/.face ~/.face.icon
 fi
